@@ -36,6 +36,8 @@ tags: 总结
 * Notepad++
 * Source Insight3（4也可以）
 * [Internet Download Manager](http://www.internetdownloadmanager.com/)
+* Kindle Mate (kindle 电子书的管理工具)
+* 虚拟机(VMware Workstation) 学习 Linux 时候, 然后再 Windows 使用远程登录, 就很方便了。
 
 
 > 持续更新。。。
