@@ -1,0 +1,114 @@
+# properties for all file types
+indent.automatic=1
+virtual.space=0
+view.whitespace=0
+view.endofline=0
+code.page=0
+caretline.visible=0
+highlight.matchingbraces=1
+print.syntax.coloring=1
+use.tab.color=1
+create.backup.files=0
+auto.load.ext.modfiles=0
+save.prj.before.dbg=0
+save.files.before.dbg=0
+function.scanner.project=1
+function.scanner.files=1
+function.scanner.modules=1
+
+# properties for c/cpp files
+syntax.colouring.cpp=1
+use.tab.cpp=0
+tabsize.cpp=4
+line.margin.visible.cpp=1
+fold.cpp=1
+monospaced.font.cpp=1
+
+# properties for asm files
+syntax.colouring.asm=1
+use.tab.asm=0
+tabsize.asm=4
+line.margin.visible.asm=1
+monospaced.font.asm=1
+
+# properties for other files
+use.tabs=0
+tabsize=4
+line.margin.visible.txt=0
+monospaced.font.txt=1
+
+# setting for code completion and syntax check
+cc.autolist=1
+cc.highlightsyntax=1
+cc.showparameters=1
+cc.triggerlist=1
+cc.triggernumchars=3
+cc.enter.as.fillup=0
+
+# autosave for editor files
+autosave=0
+autosave.interval=5
+
+# vertical edge at right margin
+edge.mode=0
+edge.column=80
+
+
+# Specification for text selection and caret line
+selection.fore=#FFFFFF
+selection.back=#FF8000
+caret.fore=#00FF00
+caret.back=#3E3E3E
+
+# Color for vertical edge
+edge.colour=#66FAFA
+
+# C/C++ Editor files
+template.cpp="#define","#define |";"#if","#if |\r\n\r\n#endif";\\
+    "#include","#include ";"Header","// Header:\r\n// File Name: |\r\n// Author:\r\n// Date:\r\n";\\
+    "continue","continue;";"do","do\r\n{\r\n\t// TODO: enter the block content here\r\n\t\r\n\t|\r\n} while ();\r\n";\\
+    "enum","enum |\r\n{\r\n\t\r\n};\r\n";"for","for(|;;)\r\n{\r\n}";\\
+    "fpointer_type","typedef int (* |F)();\r\n";"function","void function(|)\r\n{\r\n\r\n}\r\n";\\
+    "if","if (|)";"ifelse","if (|)\r\n{\r\n}\r\nelse\r\n{\r\n}";\\
+    "struct","struct | \r\n{\r\n\r\n};\r\n";"switch","switch (|)\r\n{\r\n\tcase:\r\n\t\tbreak;\r\n\tcase:\r\n\t\tbreak;\r\n\tdefault:\r\n\t\tbreak;\r\n}";\\
+    "void","void | ();\r\n";"while","while (|)\r\n{\r\n}";\\
+    
+font.monospace.cpp=Consolas
+style.cpp.32=font:Consolas,size:12,fore:#FFFFFF,back:#2F2F2F
+style.cpp.4=font:Consolas,size:12,fore:#FF0080,back:#2F2F2F
+style.cpp.10=font:Consolas,size:12,fore:#808000,back:#2F2F2F
+style.cpp.1=font:Consolas,size:12,fore:#8080FF,back:#2F2F2F
+style.cpp.2=font:Consolas,size:12,fore:#FF80FF,back:#2F2F2F
+style.cpp.5=font:Consolas,size:12,fore:#14B4FF,back:#2F2F2F,italics
+style.cpp.6=font:Consolas,size:12,fore:#80FF80,back:#2F2F2F
+style.cpp.11=font:Consolas,size:12,fore:#FFFFFF,back:#2F2F2F
+style.cpp.9=font:Consolas,size:12,fore:#FF8080,back:#2F2F2F
+style.cpp.7=font:Consolas,size:12,fore:#FF8000,back:#2F2F2F
+style.cpp.34=font:Consolas,size:12,fore:#500000,back:#20FFFF
+style.cpp.35=font:Consolas,size:12,fore:#FF0000,back:#FFFFFF
+style.cpp.16=font:Consolas,size:12,fore:#B00040,back:#FFFFFF
+style.cpp.12=font:Consolas,size:12,fore:#000000,back:#E0C0E0
+
+
+# Asm Editor files
+font.monospace.asm=Courier New
+style.asm.32=font:Courier New,size:10,fore:#FFFFFF,back:#2F2F2F
+style.asm.1=font:Courier New,size:10,fore:#808040,back:#2F2F2F
+style.asm.2=font:Courier New,size:10,fore:#FF80FF,back:#2F2F2F
+style.asm.3=font:Courier New,size:10,fore:#FF8040,back:#2F2F2F
+style.asm.4=font:Courier New,size:10,fore:#FFFFFF,back:#2F2F2F
+style.asm.5=font:Courier New,size:10,fore:#FFFFFF,back:#2F2F2F
+style.asm.6=font:Courier New,size:10,fore:#FFFF80,back:#2F2F2F
+style.asm.7=font:Courier New,size:10,fore:#FFFF80,back:#2F2F2F
+style.asm.9=font:Courier New,size:10,fore:#80FFFF,back:#2F2F2F
+style.asm.10=font:Courier New,size:10,fore:#80FFFF,back:#2F2F2F
+style.asm.11=font:Courier New,size:10,fore:#007F00,back:#2F2F2F
+style.asm.12=font:Courier New,size:10,fore:#FF80FF,back:#2F2F2F
+style.asm.8=font:Courier New,size:10,fore:#46AA03,back:#2F2F2F
+
+
+# Editor Text files
+font.monospace.txt=Courier New
+style.txt.32=font:Verdana,size:10,fore:#FFFFFF,back:#2F2F2F
+
+
