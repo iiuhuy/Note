@@ -1,0 +1,27 @@
+
+T15B8 000:309 SEGGER J-Link V5.02c Log File (0001ms, 0278ms total)
+T15B8 000:309 DLL Compiled: Sep 10 2015 17:39:31 (0001ms, 0278ms total)
+T15B8 000:309 Logging started @ 2017-10-20 18:50 (0001ms, 0278ms total)
+T15B8 000:310 JLINK_SetWarnOutHandler(...) (0000ms, 0278ms total)
+T15B8 000:310 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Jan 31 2018 18:34:52
+Hardware: V8.00
+S/N: 20080643
+Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFull  returns O.K. (0271ms, 0549ms total)
+T15B8 000:581 JLINK_SetErrorOutHandler(...) (0000ms, 0549ms total)
+T15B8 000:581 JLINK_ExecCommand("ProjectFile = "E:\2_Store\Printer\Printer_Debug\STM32F103C8_debug\Proj_one\Print_solf\JLinkSettings.ini"", ...)  returns 0x00 (0002ms, 0551ms total)
+T15B8 000:595 JLINK_ExecCommand("Device = STM32F103RC", ...)Device "STM32F103RC" selected.  returns 0x00 (0013ms, 0565ms total)
+T15B8 000:609 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0565ms total)
+T15B8 000:609 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0565ms total)
+T15B8 000:609 JLINK_GetDLLVersion()  returns 50203 (0000ms, 0565ms total)
+T15B8 000:609 JLINK_GetFirmwareString(...) (0000ms, 0565ms total)
+T15B8 000:631 JLINK_GetDLLVersion()  returns 50203 (0000ms, 0565ms total)
+T15B8 000:631 JLINK_GetCompileDateTime() (0000ms, 0565ms total)
+T15B8 000:638 JLINK_GetFirmwareString(...) (0000ms, 0565ms total)
+T15B8 000:645 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0565ms total)
+T15B8 000:671 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0004ms, 0569ms total)
+T15B8 000:676 JLINK_SetSpeed(1000) (0000ms, 0570ms total)
+T15B8 000:676 JLINK_GetId()  returns 0x00000000 (0002ms, 0572ms total)
+T15B8 001:640 JLINK_Close() (0002ms, 0574ms total)
+T15B8 001:640  (0002ms, 0574ms total)
+T15B8 001:640 Closed (0002ms, 0574ms total)
