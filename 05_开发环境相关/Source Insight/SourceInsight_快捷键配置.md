@@ -1,9 +1,9 @@
 # SourceInsight 快捷键配置
 
-总结一下自己常用的快捷键, 说来惭愧。常用的快捷键很少的, 虽然网上找了配置文件, 但自己平时生活工作的规范性却很低。
+总结一下自己常用的快捷键, 说来惭愧。常用的快捷键很少的, 虽然网上找了配置文件, 但自己平时生活工作的规范性却很低。尽量的提高自己的效率。
 
-* `Ctrl + /` 进行快速注释
-	* 打开 Base 工程 -->> Project->Open Project 选择 `Base` 工程,然后将下面的代码 copy 到文末。
+### 01 `Ctrl + /` 进行快速注释
+打开 Base 工程 -->> Project->Open Project 选择 `Base` 工程,然后将下面的代码 copy 到文末。
 
 		macro MultiLineComment()  
 		{  
@@ -43,4 +43,6 @@
 	    SetWndSel(hwnd, selection)  
 		}
 
-	* Option -> Key Assignments -> Macro:MultiLineComment 设置为快捷键 `Ctrl + /`
+Option -> Key Assignments -> Macro:MultiLineComment 设置为快捷键 `Ctrl + /`
+
+### 02 
