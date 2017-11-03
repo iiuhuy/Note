@@ -25,7 +25,9 @@
 #include "stm32f10x_rcc.h"
 #include "delay.h"
 #include "Uart.h" 
+#include "sys.h"
 #include "epson_m150ii.h"
+#include "timer.h"
 
 ErrorStatus HSEStartUpStatus;
 
@@ -97,59 +99,20 @@ void RCC_Configuration(void)
 	//	SEGGER_RTT_printf(0, "sysclock is %d", SystemCoreClock );
 }
 
-/******************************************************************************
-函数原型:	void Nvic_Init(void)
-功    能:	NVIC 初始化
-*******************************************************************************/ 
-void Nvic_Init(void)
-{
-	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	// NVIC_PriorityGroup 
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);		// 位于同一组别, 
-
-	// Reset	PB10 
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;	
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-/*	
-	// Timing  PB6
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;		// Timing 
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-*/
-	// USART (串口)
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;		// USART
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-}
 
 int main(void)
 {
 //	RCC_Configuration();	
 	Uart1_Init(115200);	// 串口初始化： 波特率 115200, 8 数据位, 1 位停止位, 禁用奇偶校验
 	delay_init();		// 延时初始化
-	
-	Epson_Printer_Init();	// Printer Init
 
 	Nvic_Init();			// 中断优先级初始化
 
-	Printer_Font_Extract("1.35 KM");
 	printf("\r\n <<===== BSP Init finish =====>> \r\n");
-	MOTER_ON();
 
   	while (1)
   	{
-		if(byPrinter_head_ITFlag == 0x01)
-		{
-			Printer_line();	// 打印一行
-		}
+		
   	}
 }
 

@@ -38,3 +38,36 @@ void GPIO_ToggleBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 	}
 }
 
+/******************************************************************************
+函数原型:	void Nvic_Init(void)
+功    能:	NVIC 初始化
+*******************************************************************************/ 
+void Nvic_Init(void)
+{
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
+	// NVIC_PriorityGroup 
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);		// 位于同一组别, 
+
+	// Reset	PB10 
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;	
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+/*	
+	// Timing  PB6
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;		// Timing 
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+*/
+	// USART (串口)
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;		// USART
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}
+

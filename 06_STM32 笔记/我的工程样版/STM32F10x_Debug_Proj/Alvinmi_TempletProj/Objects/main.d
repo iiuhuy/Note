@@ -33,3 +33,4 @@
 .\objects\main.o: .\USER\sys\sys.h
 .\objects\main.o: .\USER\usart\Uart.h
 .\objects\main.o: .\Function\epson_m150\epson_m150ii.h
+.\objects\main.o: .\USER\timer\timer.h

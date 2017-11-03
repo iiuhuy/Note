@@ -81,12 +81,10 @@ typedef struct
 {
   uint16_t TIM_OCMode;        /*!< Specifies the TIM mode.
                                    This parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes */
-							  /* 设置模式: 是 输出比较 || PWM 模式 */
-	
+
   uint16_t TIM_OutputState;   /*!< Specifies the TIM Output Compare state.
                                    This parameter can be a value of @ref TIM_Output_Compare_state */
-							  /* 设置比较输出使能, 即使能 PWM 到端口. */
-	
+
   uint16_t TIM_OutputNState;  /*!< Specifies the TIM complementary Output Compare state.
                                    This parameter can be a value of @ref TIM_Output_Compare_N_state
                                    @note This parameter is valid only for TIM1 and TIM8. */
@@ -96,8 +94,7 @@ typedef struct
 
   uint16_t TIM_OCPolarity;    /*!< Specifies the output polarity.
                                    This parameter can be a value of @ref TIM_Output_Compare_Polarity */
-							  /* 输出极性: high or low */
-							
+
   uint16_t TIM_OCNPolarity;   /*!< Specifies the complementary output polarity.
                                    This parameter can be a value of @ref TIM_Output_Compare_N_Polarity
                                    @note This parameter is valid only for TIM1 and TIM8. */
