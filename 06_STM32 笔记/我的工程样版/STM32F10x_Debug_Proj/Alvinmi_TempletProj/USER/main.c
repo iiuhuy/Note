@@ -21,6 +21,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
+#include <string.h>
+
 #include <stdio.h>
 #include "stm32f10x_rcc.h"
 #include "delay.h"
@@ -28,6 +30,8 @@
 #include "sys.h"
 #include "epson_m150ii.h"
 #include "timer.h"
+#include "oled.h"
+#include "lcd.h"
 
 ErrorStatus HSEStartUpStatus;
 
@@ -78,7 +82,6 @@ void RCC_Configuration(void)
 		}
 	}
 
-
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 | 
 		RCC_APB2Periph_GPIOA |
 		RCC_APB2Periph_GPIOB |
@@ -100,19 +103,40 @@ void RCC_Configuration(void)
 }
 
 
+
 int main(void)
-{
+{	
+	// 存放 LCD 的 buffer 声明
+	u8 lcd_id[12];			//存放LCD ID字符串
+
 //	RCC_Configuration();	
 	Uart1_Init(115200);	// 串口初始化： 波特率 115200, 8 数据位, 1 位停止位, 禁用奇偶校验
 	delay_init();		// 延时初始化
 
 	Nvic_Init();			// 中断优先级初始化
 
+	/*** OLED_Test ***/
+//	OLED_Init();			//初始化OLED  
+//	OLED_Clear(); 
+
+	/*** LCD_Test ***/
+	LCD_Init();
+	POINT_COLOR=GRAY;
+	sprintf((char*)lcd_id,"LCD ID:%04X",lcddev.id);    // 将LCD ID 打印到 lcd_id 数组。	
+	
+	printf("\r\n LCD ID:%04X \r\n", lcddev.id);
+
 	printf("\r\n <<===== BSP Init finish =====>> \r\n");
 
   	while (1)
   	{
-		
+//		LCD_Clear(YELLOW);
+
+		LCD_ShowString(30,40,210,24,24,"WarShip STM32 ^_^"); 
+		LCD_ShowString(30,70,200,16,16,"TFTLCD TEST");
+		LCD_ShowString(30,90,200,16,16,"ATOM@ALIENTEK");
+ 		LCD_ShowString(30,110,200,16,16,lcd_id);		//显示LCD ID 的区域
+		LCD_ShowString(30,130,200,12,12,"2014/5/4");	      	
   	}
 }
 

@@ -1,4 +1,4 @@
-.\objects\uart.o: USER\usart\Uart.c
+.\objects\uart.o: USER\usart\uart.c
 .\objects\uart.o: USER\usart\Uart.h
 .\objects\uart.o: .\USER\stm32f10x.h
 .\objects\uart.o: .\CORE\core_cm3.h

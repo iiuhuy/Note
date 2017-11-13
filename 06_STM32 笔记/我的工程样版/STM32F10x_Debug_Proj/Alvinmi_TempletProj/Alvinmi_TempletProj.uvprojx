@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer</IncludePath>
+              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer;.\Function\oled;.\Function\lcd</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -434,14 +434,14 @@
               <FilePath>.\USER\delay\delay.c</FilePath>
             </File>
             <File>
-              <FileName>Uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\USER\usart\Uart.c</FilePath>
-            </File>
-            <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER\timer\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\usart\uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -452,6 +452,16 @@
               <FileName>epson_m150ii.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Function\epson_m150\epson_m150ii.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\oled\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\lcd\lcd.c</FilePath>
             </File>
           </Files>
         </Group>
