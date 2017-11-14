@@ -125,5 +125,7 @@ void LCD_Set_Window(u16 sx,u16 sy,u16 width,u16 height);	//…Ë÷√¥∞ø⁄
 #define SSD_VPS (SSD_VER_BACK_PORCH)
 
 #endif  
-	 
-	 
+
+
+
+
