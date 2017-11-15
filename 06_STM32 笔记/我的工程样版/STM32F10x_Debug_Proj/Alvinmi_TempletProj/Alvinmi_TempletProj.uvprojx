@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer;.\Function\oled;.\Function\lcd;.\Function\soft_iic</IncludePath>
+              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer;.\Function\oled;.\Function\lcd;.\Function\soft_iic;.\Function\spi</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -467,6 +467,11 @@
               <FileName>i2c_soft.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Function\soft_iic\i2c_soft.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\spi\spi.c</FilePath>
             </File>
           </Files>
         </Group>
