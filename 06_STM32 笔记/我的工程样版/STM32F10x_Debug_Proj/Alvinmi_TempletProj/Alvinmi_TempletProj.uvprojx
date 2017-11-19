@@ -473,6 +473,11 @@
               <FileType>1</FileType>
               <FilePath>.\Function\spi\spi.c</FilePath>
             </File>
+            <File>
+              <FileName>ANO_DT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\ANO_DT\ANO_DT.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -33,8 +33,4 @@
 .\objects\main.o: .\USER\delay\delay.h
 .\objects\main.o: .\USER\sys\sys.h
 .\objects\main.o: .\USER\usart\Uart.h
-.\objects\main.o: .\Function\epson_m150\epson_m150ii.h
 .\objects\main.o: .\USER\timer\timer.h
-.\objects\main.o: .\Function\oled\oled.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\main.o: .\Function\lcd\lcd.h
