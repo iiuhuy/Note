@@ -2,8 +2,11 @@ Arduino 开源硬件
 
 # 01 Arduino UNO R3 
 
+> 参考官网 [Arduino UNO R3 ！](https://www.arduino.cc/en/main/arduinoBoardUno?setlang=cn)
+
 在淘宝上 ¥15.5 买了一块 Arduino UNO R3 的开发板。试着玩玩！
 它有 14 个数字输入/输出引脚(其中 6 个可以用作 PWM 输出), 6 个模拟输入, 1 个 16 MHz 的陶瓷谐振器(即晶振), 1 个 USB 连接, 1 个电源插座, 1 个 ICSP 头和 1 一个复位按钮。
+
 
 概要
 
@@ -29,6 +32,8 @@ Arduino 开源硬件
 >**目前 Arduino UNO 已成为 Arduino 主推的产品,也是学习用的最佳用板。<国产的兼容版本一般用 CH340 做为 USB 转串口芯片，这一点在安装板子的驱动的时候要注意>**
 
 直接百度 `CH340 驱动 CSDN` 我一般喜欢这样搜。 当然能上 Google 的就不多说了。
+
+参考 [Arduino 教程(入门篇)](http://www.arduino.cn/thread-1008-1-1.html) 和 [在Windows系统上入门Arduino/ Genuino](https://www.arduino.cc/en/Guide/Windows?setlang=cn)
 
 
 # 02 
