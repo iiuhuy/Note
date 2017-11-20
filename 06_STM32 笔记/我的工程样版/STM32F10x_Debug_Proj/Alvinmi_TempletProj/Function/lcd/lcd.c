@@ -1,7 +1,7 @@
 #include "lcd.h"
 #include "stdlib.h"
 #include "font.h" 
-#include "uart.h"	 
+#include "usart.h"	 
 #include "delay.h"	   
 /****
 	*2.4´ç/2.8´ç/3.5´ç/4.3´ç/7´ç TFTÒº¾§Çý¶¯	  

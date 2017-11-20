@@ -22,11 +22,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 #include <string.h>
-
 #include <stdio.h>
 #include "stm32f10x_rcc.h"
 #include "delay.h"
-#include "Uart.h" 
+#include "usart.h" 
 #include "sys.h"
 //#include "epson_m150ii.h"
 #include "timer.h"

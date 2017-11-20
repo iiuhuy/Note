@@ -24,8 +24,11 @@ u8 IIC_Write_1Byte(u8 SlaveAddress, u8 REG_Address, u8 REG_Date);	// IIC_Write 1
 u8 IIC_Read_1Byte(u8 SlaveAddress, u8 REG_Address, u8 *REG_Date);	// IIC_Read	 1Byte
 u8 IIC_Write_nByte(u8 SlaveAddress, u8 REG_Address, u8 len, u8 *buf);	// IIC_Write nByte
 u8 IIC_Read_nByte(u8 SlaveAddress, u8 REG_Address, u8 len, u8 *buf);	// IIC_Read	nByte
-
-
+int I2c_Soft_Start(void);		// i2c_start
+void I2c_Soft_Ack(void);		// i2c_Ack
+void I2c_Soft_NoAck(void);		// i2c_NoAck
+int I2c_Soft_WaitAck(void);		// i2c_WaitAck
+void I2c_Soft_Stop(void);		// i2c_stop
 #endif
 
 

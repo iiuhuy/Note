@@ -32,5 +32,5 @@
 .\objects\lcd.o: .\STM32F10x_FWLib\inc\misc.h
 .\objects\lcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\lcd.o: Function\lcd\font.h
-.\objects\lcd.o: .\USER\usart\uart.h
+.\objects\lcd.o: .\USER\usart\usart.h
 .\objects\lcd.o: .\USER\delay\delay.h

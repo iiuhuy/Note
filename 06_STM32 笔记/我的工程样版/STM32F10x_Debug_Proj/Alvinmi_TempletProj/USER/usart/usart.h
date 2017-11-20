@@ -1,5 +1,5 @@
-#ifndef _UART_H_
-#define _UART_H_
+#ifndef _USART_H_
+#define _USART_H_
 #include "stm32f10x.h"
 
 #define USART_REC_LEN  			200  	//定义最大接收字节数 200

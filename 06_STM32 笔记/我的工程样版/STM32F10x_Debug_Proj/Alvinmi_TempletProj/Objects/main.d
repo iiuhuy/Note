@@ -32,5 +32,5 @@
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: .\USER\delay\delay.h
 .\objects\main.o: .\USER\sys\sys.h
-.\objects\main.o: .\USER\usart\Uart.h
+.\objects\main.o: .\USER\usart\usart.h
 .\objects\main.o: .\USER\timer\timer.h

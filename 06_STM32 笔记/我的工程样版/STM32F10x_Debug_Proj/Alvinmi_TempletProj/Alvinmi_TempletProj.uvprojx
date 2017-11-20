@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer;.\Function\oled;.\Function\lcd;.\Function\soft_iic;.\Function\spi</IncludePath>
+              <IncludePath>.\CORE;.\USER;.\STM32F10x_FWLib\inc;.\USER\sys;.\USER\delay;.\USER\usart;.\Function\epson_m150;.\USER\timer;.\Function\oled;.\Function\lcd;.\Function\soft_iic;.\Function\spi;.\Function\w25qxx;.\Function\rtc;.\Function\24cxx</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -439,9 +439,9 @@
               <FilePath>.\USER\timer\timer.c</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\USER\usart\uart.c</FilePath>
+              <FilePath>.\USER\usart\usart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -474,9 +474,19 @@
               <FilePath>.\Function\spi\spi.c</FilePath>
             </File>
             <File>
-              <FileName>ANO_DT.c</FileName>
+              <FileName>w25qxx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Function\ANO_DT\ANO_DT.c</FilePath>
+              <FilePath>.\Function\w25qxx\w25qxx.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\rtc\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>24cxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\24cxx\24cxx.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -517,11 +527,6 @@
               <FileName>stm32f10x_can.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32F10x_FWLib\src\stm32f10x_can.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f10x_cec.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\STM32F10x_FWLib\src\stm32f10x_cec.c</FilePath>
             </File>
             <File>
               <FileName>stm32f10x_crc.c</FileName>
@@ -569,11 +574,6 @@
               <FilePath>.\STM32F10x_FWLib\src\stm32f10x_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_iwdg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\STM32F10x_FWLib\src\stm32f10x_iwdg.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32F10x_FWLib\src\stm32f10x_pwr.c</FilePath>
@@ -607,11 +607,6 @@
               <FileName>stm32f10x_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32F10x_FWLib\src\stm32f10x_usart.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f10x_wwdg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\STM32F10x_FWLib\src\stm32f10x_wwdg.c</FilePath>
             </File>
           </Files>
         </Group>
