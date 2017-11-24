@@ -1,4 +1,5 @@
 .\objects\epson_m150ii.o: Function\epson_m150\epson_m150ii.c
+.\objects\epson_m150ii.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\epson_m150ii.o: Function\epson_m150\epson_m150ii.h
 .\objects\epson_m150ii.o: .\USER\sys\sys.h
 .\objects\epson_m150ii.o: .\USER\stm32f10x.h

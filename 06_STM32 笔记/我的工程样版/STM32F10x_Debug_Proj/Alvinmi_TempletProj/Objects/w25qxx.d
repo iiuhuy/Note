@@ -1,4 +1,5 @@
 .\objects\w25qxx.o: Function\w25qxx\w25qxx.c
+.\objects\w25qxx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\w25qxx.o: Function\w25qxx\w25qxx.h
 .\objects\w25qxx.o: .\USER\sys\sys.h
 .\objects\w25qxx.o: .\USER\stm32f10x.h
@@ -33,4 +34,3 @@
 .\objects\w25qxx.o: .\Function\spi\spi.h
 .\objects\w25qxx.o: .\USER\delay\delay.h
 .\objects\w25qxx.o: .\USER\usart\usart.h
-.\objects\w25qxx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

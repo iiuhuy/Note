@@ -12,7 +12,7 @@
 #define SPI_Pin_MOSI		GPIO_Pin_15
 /*********************************************/
 
-void SPI_Config_Init(void);
+void SPI2_Config_Init(void);
 void SPI_CE_H(void);
 void SPI_CE_L(void);
 void SPI_CSN_H(void);

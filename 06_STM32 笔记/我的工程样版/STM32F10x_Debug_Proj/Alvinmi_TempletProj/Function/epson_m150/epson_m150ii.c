@@ -1,9 +1,10 @@
+#include <stdio.h>
 #include "epson_m150ii.h"
 #include "sys.h"
 #include "string.h"
 #include "delay.h"
 
-PRINTER_CTR_TYPE p_ctr;
+PRINTER_CTR_TYPE p_ctr;			// 打印点行的结构体
 uint8_t byPrinter_head_ITFlag;	// 中断处理标志位
 
 // ----------------- 变量 ------------------- //
@@ -159,7 +160,8 @@ void Printer_IO_Config(void)
 {
 	GPIO_InitTypeDef    GPIO_InitStructure;
 	EXTI_InitTypeDef 	EXTI_InitStructure;	
-
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO | RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOC , ENABLE);
 	
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;	// A 
@@ -226,6 +228,13 @@ void Printer_IO_Config(void)
 	EXTI_Init(&EXTI_InitStructure);
 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource8);
 	EXTI_ClearITPendingBit(EXTI_Line8);		// Clean Timing IT Flag
+	
+	// Reset	PB10 
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;	
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }
 
 // 打印前初始化
@@ -243,14 +252,15 @@ void Printer_Timer_Init(void)
 * 参数: String  字符串长度不能大于 12
 * 返回值: Null
 **************************************************/
-void Printer_Font_Extract(char *String)
+void Printer_Font_Extract(char *String,char len)
 {
 	u8 line_null;
 	u8 i,j;
 	u8 StringLen = 0x00;
 	int x, y;
-	StringLen = strlen(String);
-	
+//	StringLen = strlen(String);
+	StringLen = len;	// 打印机字符串的长度.
+
 	// 从字库中取数据填到 buffer 中
 	line_null = 12 - StringLen;
 	
@@ -275,7 +285,7 @@ void Printer_Font_Extract(char *String)
 }
 
 // Print line dot. 
-void Printer_line()
+void Printer_line(void)
 {
 	u8 space_line = 5;
 	
@@ -314,7 +324,6 @@ void Printer_line()
 	
 	if(p_ctr.line_num > 7 + space_line)	// 打印完成一个点行.	
 	{
-//		finishi_flag ++;
 		MOTER_OFF();
 		p_ctr.line_num = 0;
 		p_ctr.t_num = 0;
@@ -325,13 +334,6 @@ void Printer_line()
 		PTC_OFF();
 		PTD_OFF();
 	}
-	
-//	if(finishi_flag > 3)	// printer 12 line date, stop motor
-//	{
-//		MOTER_OFF();
-//		memset(ascii_printer, 0x00, sizeof(ascii_printer));
-//		memset(print_real, 0x00, sizeof(print_real));
-//	}
 	
 	// Judge printer head work logic
 	if((p_ctr.t_num < 97) && (p_ctr.t_num != p_ctr.t_num_back) && (p_ctr.line_num > space_line))
@@ -392,10 +394,25 @@ void Printer_line()
 	}
 }
 
+// Epson 打印机初始化
 void Epson_Printer_Init(void)
 {
 	Printer_IO_Config();	// 打印机 IO 初始化
 	Printer_Timer_Init();   // 打印前初始化变量
 }
 
+/*******************************************************************************
+* Function Name  : void Print_Invoice(char *str,char len)
+* Description    : 发票打印接口
+* Input          : char *str: 打印传递的字符串.  char len: 字符串的长度
+* Output         : 
+* Return         : none
+*******************************************************************************/
+void Print_Invoice(char *str,char len)
+{
+	Printer_Font_Extract(str,len);
+	while(MOTER_STA==1);		// 等待打印机打印完成, 就不用一直在 while 中查询
+	memset(ascii_printer, 0x00, sizeof(ascii_printer));
+	memset(print_real, 0x00, sizeof(print_real));
+}
 

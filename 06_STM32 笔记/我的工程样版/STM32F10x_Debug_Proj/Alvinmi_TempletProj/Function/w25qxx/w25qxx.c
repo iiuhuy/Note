@@ -1,20 +1,19 @@
+#include <stdio.h>
 #include "w25qxx.h" 
 #include "spi.h"
 #include "delay.h"
 #include "usart.h"
-#include <stdio.h>
 
-u16 W25QXX_TYPE=W25Q128;	//默认是W25Q128
+// w25q128 有 128M, so 有 16M Byte.
+// 16M -> 256(Block), one block -> 16(Sector),  4Kbytes为一个Sector
+// 容量为 16M Byte, 共有 128 个 Block, 4096 个 Sector. 
 
-//4Kbytes为一个Sector
-//16个扇区为1个Block
-//W25Q128
-//容量为16M字节,共有128个Block,4096个Sector 
-													 
+u16 W25QXX_TYPE=W25Q128;	// 默认是 W25Q128 
+									 
 //初始化SPI FLASH的IO口
 void W25QXX_Init(void)
 {	
-  GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
 	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );//PORTB时钟使能 
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;  // PB12 推挽 
@@ -24,7 +23,7 @@ void W25QXX_Init(void)
  	GPIO_SetBits(GPIOB,GPIO_Pin_12);
  
     W25QXX_CS=1;				//SPI FLASH不选中
-	SPI_Config_Init();		   	//初始化SPI
+	SPI2_Config_Init();		   	//初始化SPI
 //	SPI2_SetSpeed(SPI_BaudRatePrescaler_2);//设置为18M时钟,高速模式
 	W25QXX_TYPE=W25QXX_ReadID();//读取FLASH ID.  
 
