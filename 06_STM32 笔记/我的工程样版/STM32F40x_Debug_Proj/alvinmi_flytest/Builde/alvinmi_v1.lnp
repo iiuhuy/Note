@@ -1,0 +1,25 @@
+--cpu Cortex-M4.fp
+".\builde\main.o"
+".\builde\bsp_init.o"
+".\builde\drv_timer.o"
+".\builde\drv_led.o"
+".\builde\startup_stm32f4xx.o"
+".\builde\system_stm32f4xx.o"
+".\builde\misc.o"
+".\builde\stm32f4xx_adc.o"
+".\builde\stm32f4xx_dbgmcu.o"
+".\builde\stm32f4xx_dma.o"
+".\builde\stm32f4xx_exti.o"
+".\builde\stm32f4xx_flash.o"
+".\builde\stm32f4xx_gpio.o"
+".\builde\stm32f4xx_i2c.o"
+".\builde\stm32f4xx_pwr.o"
+".\builde\stm32f4xx_rcc.o"
+".\builde\stm32f4xx_spi.o"
+".\builde\stm32f4xx_syscfg.o"
+".\builde\stm32f4xx_tim.o"
+".\builde\stm32f4xx_usart.o"
+--strict --scatter ".\Builde\alvinmi_v1.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Builde\alvinmi_v1.map" -o .\Builde\alvinmi_v1.0
