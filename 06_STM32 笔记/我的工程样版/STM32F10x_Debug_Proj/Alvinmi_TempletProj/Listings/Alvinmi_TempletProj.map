@@ -615,7 +615,7 @@ Removing Unused input sections from the image.
     Removing epson_m150ii.o(i.Printer_Font_Extract), (160 bytes).
     Removing epson_m150ii.o(i.Printer_IO_Config), (396 bytes).
     Removing epson_m150ii.o(i.Printer_Timer_Init), (16 bytes).
-    Removing epson_m150ii.o(i.Printer_line), (644 bytes).
+    Removing epson_m150ii.o(i.Printer_line), (676 bytes).
     Removing epson_m150ii.o(.bss), (178 bytes).
     Removing epson_m150ii.o(.constdata), (772 bytes).
     Removing oled.o(i.OLED_Clear), (64 bytes).
@@ -1140,7 +1140,7 @@ Removing Unused input sections from the image.
     Removing stm32f10x_usart.o(i.USART_StructInit), (24 bytes).
     Removing stm32f10x_usart.o(i.USART_WakeUpConfig), (18 bytes).
 
-544 unused section(s) (total 59158 bytes) removed from the image.
+544 unused section(s) (total 59190 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1815,26 +1815,26 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        68         18          0          4          0        713   delay.o
-         0          0          0         92          0       2928   epson_m150ii.o
-       100         64          0          0          0      48587   main.o
-       172         22          0          0          0       2129   misc.o
-       546         56         24          2         10       3737   rtc.o
-        64         26        304          0       1536        816   startup_stm32f10x_hd.o
-        52         12          0          0          0       1160   stm32f10x_exti.o
-       278          0          0          0          0       1988   stm32f10x_gpio.o
-        98         12          0          0          0       4547   stm32f10x_it.o
-       244         26          0         20          0       3945   stm32f10x_rcc.o
-        92         16          0          0          0       2141   stm32f10x_rtc.o
-        68          0          0          0          0       3501   stm32f10x_tim.o
-       416          6          0          0          0       5611   stm32f10x_usart.o
-         0          0          0          0          0     204852   sys.o
-       328         28          0         20          0       2261   system_stm32f10x.o
-       192         14          0         18          0       1088   timer.o
-       234         20          0          8          0       4209   usart.o
+        68         18          0          4          0        717   delay.o
+         0          0          0         92          0       2936   epson_m150ii.o
+       100         64          0          0          0      48599   main.o
+       172         22          0          0          0       2141   misc.o
+       546         56         24          2         10       3757   rtc.o
+        64         26        304          0       1536        820   startup_stm32f10x_hd.o
+        52         12          0          0          0       1168   stm32f10x_exti.o
+       278          0          0          0          0       1992   stm32f10x_gpio.o
+        98         12          0          0          0       4583   stm32f10x_it.o
+       244         26          0         20          0       3957   stm32f10x_rcc.o
+        92         16          0          0          0       2157   stm32f10x_rtc.o
+        68          0          0          0          0       3521   stm32f10x_tim.o
+       416          6          0          0          0       5639   stm32f10x_usart.o
+         0          0          0          0          0     204860   sys.o
+       328         28          0         20          0       2281   system_stm32f10x.o
+       192         14          0         18          0       1096   timer.o
+       234         20          0          8          0       4221   usart.o
 
     ----------------------------------------------------------------------
-      2968        320        360        168       1548     294213   Object Totals
+      2968        320        360        168       1548     294445   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         16          0          0          4          2          0   (incl. Padding)
 
@@ -1892,8 +1892,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3760        362        360        168       1648     292673   Grand Totals
-      3760        362        360        168       1648     292673   ELF Image Totals
+      3760        362        360        168       1648     292905   Grand Totals
+      3760        362        360        168       1648     292905   ELF Image Totals
       3760        362        360        168          0          0   ROM Totals
 
 ==============================================================================
