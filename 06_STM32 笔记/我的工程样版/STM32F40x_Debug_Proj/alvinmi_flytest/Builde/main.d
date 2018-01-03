@@ -24,3 +24,4 @@
 .\builde\main.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h
 .\builde\main.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\builde\main.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
+.\builde\main.o: User\Applications\Task_scheduler.h

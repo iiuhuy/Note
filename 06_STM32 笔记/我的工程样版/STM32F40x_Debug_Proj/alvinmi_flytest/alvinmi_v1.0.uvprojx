@@ -419,6 +419,11 @@
               <FilePath>.\User\Applications\BSP_Init.c</FilePath>
             </File>
             <File>
+              <FileName>Task_scheduler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Applications\Task_scheduler.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4xx_conf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\User\Applications\stm32f4xx_conf.h</FilePath>

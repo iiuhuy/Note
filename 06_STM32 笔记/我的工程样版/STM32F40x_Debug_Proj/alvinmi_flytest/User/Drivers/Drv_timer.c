@@ -66,13 +66,14 @@ void SysTick_Configuration(void)
 	RCC_ClocksTypeDef rcc_clocks;
 	uint32_t	cnts;
 	
-	RCC_GetClocksFreq(&rcc_clocks);
+	RCC_GetClocksFreq(&rcc_clocks);	// 将芯片内各个模块的时钟保存在参数 rcc_clocks 中, 包含了结构体中的四个参数
 	
-	cnts = (uint32_t) rcc_clocks.HCLK_Frequency / TICK_PER_SECOND;
-	cnts = cnts / 8;
+	cnts = (uint32_t) rcc_clocks.HCLK_Frequency / TICK_PER_SECOND;		// HCLK_Frequency/1000 = 1000 
+	cnts = cnts / 8;	// cnts/8 = 1000 
 	
 	SysTick_Config(cnts);
-	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);	// SysTick 时钟源为 AHB / 8
+	
+	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);	// SysTick 时钟源为 AHB / 8 
 }
 
 volatile uint32_t sysTickUpTime = 0;

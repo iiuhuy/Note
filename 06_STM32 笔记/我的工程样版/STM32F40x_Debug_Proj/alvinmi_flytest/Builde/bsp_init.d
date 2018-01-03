@@ -25,3 +25,5 @@
 .\builde\bsp_init.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\builde\bsp_init.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
 .\builde\bsp_init.o: .\User\Drivers\Drv_timer.h
+.\builde\bsp_init.o: .\User\Drivers\Drv_led.h
+.\builde\bsp_init.o: .\User\Drivers\Drv_w25qxx.h

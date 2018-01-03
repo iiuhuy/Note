@@ -24,7 +24,7 @@ uint32_t GetSysTime_us(void);		//
 void Delay_us (uint32_t us);		// delay us
 void Delay_ms (uint32_t ms);		// delay ms
 void sys_time(void);
-u32 SysTick_GetTick(void);
+u32 SysTick_GetTick(void);			 
 u32 Get_Delta_T(_get_dT_st *data);
 
 

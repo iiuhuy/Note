@@ -1,0 +1,9 @@
+01: 搭建基本工程.
+02: 构建主流框架.
+		任务调度机制: BSP_All_Init、schedule_Setup、schendelu_run。
+		搞明白, 任务调度调度机制原理, 滴答定时器定时时基. 1ms 一个周期.
+03: All_Init:
+		NVIC_PriorityGroupConfig(NVIC_PriorityGroup_3); 	
+		SysTick_Configuration();		滴答时钟配置.
+		LED_Drv(), 使用 mcu + 3个小的 mos 管驱动
+		Flash_Init, w25qxx 板载芯片 Init.
