@@ -170,12 +170,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS\Include;.\Libraries\CMSIS\ST\STM32F4xx\Include;.\User\Applications;.\User\Contral;.\User\Date;.\User\Drivers</IncludePath>
+              <IncludePath>.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS\Include;.\Libraries\CMSIS\ST\STM32F4xx\Include;.\User\Applications;.\User\Contral;.\User\Date;.\User\Drivers;.\User\Ano_fc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -443,6 +443,11 @@
               <FileType>1</FileType>
               <FilePath>.\User\Drivers\Drv_led.c</FilePath>
             </File>
+            <File>
+              <FileName>Drv_w25qxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Drivers\Drv_w25qxx.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -450,6 +455,18 @@
         </Group>
         <Group>
           <GroupName>Date</GroupName>
+          <Files>
+            <File>
+              <FileName>Ano_FcDate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Ano_fc\Ano_FcDate.c</FilePath>
+            </File>
+            <File>
+              <FileName>Ano_Parameter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Ano_fc\Ano_Parameter.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Libraries</GroupName>
@@ -538,6 +555,13 @@
         </Group>
         <Group>
           <GroupName>Note</GroupName>
+          <Files>
+            <File>
+              <FileName>note.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Note\note.txt</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

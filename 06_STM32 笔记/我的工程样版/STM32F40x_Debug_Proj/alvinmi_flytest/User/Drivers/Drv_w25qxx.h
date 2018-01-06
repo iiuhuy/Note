@@ -30,13 +30,17 @@
 typedef struct
 {
     uint8_t initialized;	// 初始化标志位
-    uint16_t sector_size;
-    uint16_t sector_count;
-    uint32_t capacity;
+    uint16_t sector_size;	// 扇区的大小
+    uint16_t sector_count;	// 
+    uint32_t capacity;		// 容量
 } flash_info_t;
 
 void Flash_Init(void);  
-
+void Flash_SectorErase(uint32_t address,uint8_t state);
+void Flash_PageRead(uint32_t address,uint8_t* buffer,  uint32_t lenght);
+void Flash_PageWrite(uint32_t address,uint8_t* buffer,  uint32_t lenght);
+void Flash_SectorsRead(uint32_t address,uint8_t *buffer,uint16_t count);
+void Flash_SectorsWrite(uint32_t address,uint8_t *buffer,uint16_t count);
 flash_info_t *Flash_GetInfo(void);
 
 #endif

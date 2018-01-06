@@ -27,3 +27,4 @@
 .\builde\bsp_init.o: .\User\Drivers\Drv_timer.h
 .\builde\bsp_init.o: .\User\Drivers\Drv_led.h
 .\builde\bsp_init.o: .\User\Drivers\Drv_w25qxx.h
+.\builde\bsp_init.o: .\User\Ano_fc\Ano_FcDate.h

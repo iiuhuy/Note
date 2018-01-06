@@ -22,21 +22,32 @@ Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
 E:\1_alvinmi\Note\06_STM32 笔记\我的工程样版\STM32F40x_Debug_Proj\alvinmi_flytest\alvinmi_v1.0.uvprojx
-Project File Date:  12/28/2017
+Project File Date:  01/03/2018
 
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling Ano_Parameter.c...
-linking...
-Program Size: Code=5852 RO-data=424 RW-data=136 ZI-data=3216  
-FromELF: creating hex file...
-".\Builde\alvinmi_v1.0" - 0 Error(s), 0 Warning(s).
+User\Ano_fc\Ano_Parameter.c(26): error:  #254: type name is not allowed
+        for(u8 i=0; i < 3; i++)
+User\Ano_fc\Ano_Parameter.c(26): error:  #65: expected a ";"
+        for(u8 i=0; i < 3; i++)
+User\Ano_fc\Ano_Parameter.c(26): error:  #20: identifier "i" is undefined
+        for(u8 i=0; i < 3; i++)
+User\Ano_fc\Ano_Parameter.c(46): error:  #254: type name is not allowed
+        for(u8 i = 0;i<3;i++)   // 为什么是 8次?
+User\Ano_fc\Ano_Parameter.c(46): error:  #65: expected a ";"
+        for(u8 i = 0;i<3;i++)   // 为什么是 8次?
+User\Ano_fc\Ano_Parameter.c(46): error:  #20: identifier "i" is undefined
+        for(u8 i = 0;i<3;i++)   // 为什么是 8次?
+User\Ano_fc\Ano_Parameter.c: 0 warnings, 6 errors
+".\Builde\alvinmi_v1.0" - 6 Error(s), 0 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   E:\1_alvinmi\Note\06_STM32 笔记\我的工程样版\STM32F40x_Debug_Proj\alvinmi_flytest\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
+Target not created.
 </pre>
 </body>
 </html>

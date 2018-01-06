@@ -276,4 +276,50 @@ static void Flash_WaitForEnd (void)
     while ( FLASH_Status & JEDEC_STATUS_BUSY );
 }
 
+// Flash Sectors Read
+void Flash_SectorsRead (uint32_t address, uint8_t *buffer, uint16_t count)
+{
+	uint16_t i = 0;
+	
+	for(i = 0; i < count; i++)
+	{
+		Flash_PageRead(address,buffer,flash_info.sector_size);
+		buffer += flash_info.sector_size;
+		address += flash_info.sector_size;
+	}
+}
 
+/**
+  * @brief  Reads a block of data from the FLASH.
+  * @param buffer : pointer to the buffer that receives the data read
+  *                  from the FLASH.
+  * @param address : FLASH's internal address to read from.
+  * @param lenght : number of bytes to read from the FLASH.
+  * @retval : None
+  */
+void Flash_PageRead (uint32_t address, uint8_t* buffer,  uint32_t lenght)
+{
+    /* Select the FLASH: Chip Select low */
+    W25QXX_CS_LOW();
+	
+	/* Send "Read from Memory " instruction */
+	Flash_SendByte ( JEDEC_READ_DATA );
+	
+	/* Send ReadAddr high nibble address byte to read from */
+    Flash_SendByte ( ( address & 0xFF0000 ) >> 16 );
+    /* Send ReadAddr medium nibble address byte to read from */
+    Flash_SendByte ( ( address & 0xFF00 ) >> 8 );
+    /* Send ReadAddr low nibble address byte to read from */
+    Flash_SendByte ( address & 0xFF );
+	
+	while ( lenght-- ) /* while there is data to be read */
+    {
+        /* Read a byte from the FLASH */
+        *buffer = Flash_SendByte ( DUMMY_BYTE );
+        /* Point to the next location where the byte read will be saved */
+        buffer++;
+    }
+
+    /* Deselect the FLASH: Chip Select high */
+    W25QXX_CS_HIGH();
+}
