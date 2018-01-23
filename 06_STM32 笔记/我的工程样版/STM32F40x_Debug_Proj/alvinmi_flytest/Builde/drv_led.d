@@ -2,7 +2,7 @@
 .\builde\drv_led.o: User\Drivers\Drv_led.h
 .\builde\drv_led.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\drv_led.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\drv_led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\drv_led.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\drv_led.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\drv_led.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\drv_led.o: .\Libraries\CMSIS\Include\core_cm4_simd.h
@@ -24,3 +24,4 @@
 .\builde\drv_led.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h
 .\builde\drv_led.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\builde\drv_led.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
+.\builde\drv_led.o: User\Drivers\Drv_timer.h

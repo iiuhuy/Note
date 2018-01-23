@@ -71,7 +71,7 @@ void SysTick_Configuration(void)
 	cnts = (uint32_t) rcc_clocks.HCLK_Frequency / TICK_PER_SECOND;		// HCLK_Frequency/1000 = 1000 
 	cnts = cnts / 8;	// cnts/8 = 1000 
 	
-	SysTick_Config(cnts);
+	SysTick_Config(cnts);		// 1us?
 	
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);	// SysTick Ê±ÖÓÔ´Îª AHB / 8 
 }
@@ -88,7 +88,7 @@ uint32_t GetSysTime_us(void)
 {
 	register	uint32_t	ms;
 	u32	value;
-	ms = sysTickUpTime;
+	ms = sysTickUpTime;		
 	value = ms * TICK_US + (SysTick->LOAD - SysTick->VAL) * TICK_US / SysTick->LOAD;
 	return value;
 }

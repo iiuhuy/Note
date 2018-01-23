@@ -1,9 +1,9 @@
 .\builde\drv_w25qxx.o: User\Drivers\Drv_w25qxx.c
-.\builde\drv_w25qxx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\builde\drv_w25qxx.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdio.h
 .\builde\drv_w25qxx.o: User\Drivers\Drv_w25qxx.h
 .\builde\drv_w25qxx.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\drv_w25qxx.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\drv_w25qxx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\drv_w25qxx.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\drv_w25qxx.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\drv_w25qxx.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\drv_w25qxx.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

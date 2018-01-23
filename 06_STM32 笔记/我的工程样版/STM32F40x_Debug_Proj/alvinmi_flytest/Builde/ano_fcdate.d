@@ -2,7 +2,7 @@
 .\builde\ano_fcdate.o: User\Ano_fc\Ano_FcDate.h
 .\builde\ano_fcdate.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\ano_fcdate.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\ano_fcdate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\ano_fcdate.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\ano_fcdate.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\ano_fcdate.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\ano_fcdate.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

@@ -1,10 +1,11 @@
---cpu Cortex-M4.fp
+--cpu=Cortex-M4.fp
 ".\builde\main.o"
 ".\builde\bsp_init.o"
 ".\builde\task_scheduler.o"
 ".\builde\drv_timer.o"
-".\builde\drv_led.o"
 ".\builde\drv_w25qxx.o"
+".\builde\drv_led.o"
+".\builde\flight_ctrl.o"
 ".\builde\ano_fcdate.o"
 ".\builde\ano_parameter.o"
 ".\builde\startup_stm32f4xx.o"

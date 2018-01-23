@@ -2,7 +2,7 @@
 .\builde\drv_timer.o: User\Drivers\Drv_timer.h
 .\builde\drv_timer.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\drv_timer.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\drv_timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\drv_timer.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\drv_timer.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\drv_timer.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\drv_timer.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

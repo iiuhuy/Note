@@ -3,9 +3,9 @@
 
 typedef struct
 {
-	uint8_t Manufacturer;            /* Manufacturer ID 制造商 id */
-	uint8_t Memory;               	 /* Density Code  */
-	uint8_t Capacity;                /* Family Code 容量 */
+	uint8_t Manufacturer;            /* Manufacturer */		// MF7-MF0(BYTE2)
+	uint8_t Memory;               	 /* Density Code */		// ID15-ID8(BYTE3)
+	uint8_t Capacity;                /* Family Code  */		// ID7-ID0(BYTE4)
 	uint8_t rev;
 }jedec_id_t;
 
@@ -17,9 +17,10 @@ typedef struct
 #define w25qxx_debug(fmt, ...)
 #endif
 
+// 制造商 ID
 #define JEDEC_MANUFACTURER_ST       0x20
 #define JEDEC_MANUFACTURER_MACRONIX 0xC2
-#define JEDEC_MANUFACTURER_WINBOND  0xEF
+#define JEDEC_MANUFACTURER_WINBOND  0xEF	// 查看数据手册.
 
 /* JEDEC Device ID: Memory type and Capacity */
 #define JEDEC_W25Q16_BV_CL_CV   (0x4015) /* W25Q16BV W25Q16CL W25Q16CV  */
@@ -69,20 +70,20 @@ void Flash_Init(void)
     SPI_InitTypeDef  SPI_InitStructure;
 
 	// GPIO & SPI1 rcc open
-	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOA, ENABLE);
-    RCC_APB2PeriphClockCmd (RCC_APB2Periph_SPI1, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);	// PA5\PA6\PA7 -- SCK\MISO\MOSI
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 	
 	//SPI GPIO Configuration
-	GPIO_PinAFConfig ( GPIOA, GPIO_PinSource5, GPIO_AF_SPI1 );
-    GPIO_PinAFConfig ( GPIOA, GPIO_PinSource6, GPIO_AF_SPI1 );
-    GPIO_PinAFConfig ( GPIOA, GPIO_PinSource7, GPIO_AF_SPI1 );
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_SPI1);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
 
     GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;		// 复用
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;		// 推挽输出
     GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;		// 下拉
-    GPIO_Init ( GPIOA, &GPIO_InitStructure );
+    GPIO_Init(GPIOA, &GPIO_InitStructure );
 
 	//flash SPI CS
     GPIO_InitStructure.GPIO_Pin             = GPIO_Pin_4;
@@ -90,10 +91,10 @@ void Flash_Init(void)
     GPIO_InitStructure.GPIO_OType           = GPIO_OType_PP;	// 推挽
     GPIO_InitStructure.GPIO_PuPd            = GPIO_PuPd_UP;		// 上拉
     GPIO_InitStructure.GPIO_Speed           = GPIO_Speed_2MHz;
-    GPIO_Init ( GPIOA, &GPIO_InitStructure );
+    GPIO_Init(GPIOA, &GPIO_InitStructure );
 	
 	//SPI configuration
-    SPI_I2S_DeInit ( SPI1 );
+    SPI_I2S_DeInit(SPI1);
     SPI_InitStructure.SPI_Direction         = SPI_Direction_2Lines_FullDuplex;	// 设置SPI单向或者双向的数据模式:SPI设置为双线双向全双工
     SPI_InitStructure.SPI_Mode              = SPI_Mode_Master;					// 设置SPI工作模式:设置为主SPI
     SPI_InitStructure.SPI_DataSize          = SPI_DataSize_8b;					// 设置SPI的数据大小:SPI发送接收8位帧结构
@@ -103,42 +104,42 @@ void Flash_Init(void)
     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;			// 定义波特率预分频的值:波特率预分频值为 16
     SPI_InitStructure.SPI_FirstBit          = SPI_FirstBit_MSB;					// 指定数据传输从MSB位还是LSB位开始:数据传输从MSB位开始
     SPI_InitStructure.SPI_CRCPolynomial     = 7;								// CRC值计算的多项式
-    SPI_Init ( SPI1, &SPI_InitStructure );
-    SPI_Cmd ( SPI1, ENABLE );
-    W25QXX_CS_HIGH();
+    SPI_Init(SPI1, &SPI_InitStructure);
+    SPI_Cmd(SPI1, ENABLE);
+    W25QXX_CS_HIGH();		// CS_HIGH
 	
 	/* Select the FLASH: Chip Select low */    
-	W25QXX_CS_LOW();
+	W25QXX_CS_LOW();		// CS_LOW
 	/* Send "0xff " instruction */
-    Flash_SendByte ( DUMMY_BYTE );
+    Flash_SendByte(DUMMY_BYTE);		// 发送一个空字节.
 	
-	W25QXX_CS_HIGH();
+	W25QXX_CS_HIGH();		
 
 	/* Read Flash Id */
-    Flash_ReadID ( &flash_id );
+    Flash_ReadID(&flash_id);		// Manufacturer id
 
-	if(flash_id.Manufacturer == JEDEC_MANUFACTURER_WINBOND)
+	if(flash_id.Manufacturer == JEDEC_MANUFACTURER_WINBOND)		// 判断 id
 	{
 		flash_info.sector_size = 4096;                         /* Page Erase (4096 Bytes) */
 		if(flash_id.Capacity == (JEDEC_W25Q128_BV & 0xff))
 		{
 			w25qxx_debug ( "W25Q128_BV detection\r\n" );
-            flash_info.sector_count = 4096;                        /* 128Mbit / 8 / 4096 = 4096 */
+            flash_info.sector_count = 4096;                    /* 128Mbit / 8 / 4096 = 4096 */
 		}
 		else if(flash_id.Capacity == (JEDEC_W25Q64_DW & 0xff))
 		{
             w25qxx_debug ( "W25Q64_DW or W25Q64_BV or W25Q64_CV detection\r\n" );
-			flash_info.sector_count = 2048;
+			flash_info.sector_count = 2048;					   // 64Mbit / 8 / 4096 = 2048
 		}
 		else if(flash_id.Capacity == (JEDEC_W25Q32_DW & 0xff))
 		{
 			w25qxx_debug ( "W25Q32_DW or W25Q32_BV detection\r\n" );
-			flash_info.sector_count = 1024;
+			flash_info.sector_count = 1024;					   // 32Mbit / 8 / 4096 = 1024
 		}
 		else if(flash_id.Capacity == (JEDEC_W25Q16_DW & 0xff))
 		{
 			w25qxx_debug ( "W25Q16_DW or W25Q16_BV detection\r\n" );
-			flash_info.sector_count = 512;
+			flash_info.sector_count = 512;					   // 16Mbit / 8 / 4096 = 512
 		}
 		else
 		{
@@ -146,7 +147,7 @@ void Flash_Init(void)
             flash_info.sector_count = 0;
 		}
 		
-		// flash 容量   
+		// flash 容量   capacity = sector_size * sector_count
 		flash_info.capacity = flash_info.sector_size * flash_info.sector_count;
 	}
 	else 
@@ -186,29 +187,29 @@ static uint8_t Flash_SendByte (uint8_t byte)
 * 参数 Parameter: jedec_id_t *id
 * 返回值 Returned value: Manufacturer id
 ****************************************************************************/
-uint8_t Flash_ReadID ( jedec_id_t *id )
+uint8_t Flash_ReadID(jedec_id_t *id)
 {
 	uint8_t *recv_buffer = ( uint8_t* ) id;
 
     /* Select the FLASH: Chip Select low */
-    W25QXX_CS_LOW();
+    W25QXX_CS_LOW();		// 开始通讯: CS 低电平
 
     /* Send "RDID " instruction */
-    Flash_SendByte ( JEDEC_DEVICE_ID );
+    Flash_SendByte (JEDEC_DEVICE_ID);		//  发送 JEDEC_DEVICE_ID 指令, 读取 ID --- 0x9F
 
     /* Read a byte from the FLASH */
-    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE );
+    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE );	// 读取一个字节
 
     /* Read a byte from the FLASH */
-    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE );
+    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE );	// 读取一个字节
 
     /* Read a byte from the FLASH */
-    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE );
+    *recv_buffer++ = Flash_SendByte ( DUMMY_BYTE ); // 读取一个字节
 
     /* Deselect the FLASH: Chip Select high */
-    W25QXX_CS_HIGH();
+    W25QXX_CS_HIGH();		// 停止通讯, CS 高电平
 	
-	return id->Manufacturer;
+	return id->Manufacturer;	// 将 id 保存在结构体 ID -> Manufacturer 
 }
 
 /***************************************************************************
@@ -227,38 +228,14 @@ static void Flash_WriteEnable (void)
     W25QXX_CS_HIGH();
 }
 
-/***************************************************************************
-* 原型 Prototype: void Flash_SectorErase (uint32_t address, uint8_t state)
-* 功能 Function : Erases the specified FLASH sector. 擦除指定的扇区.
-* 参数 Parameter: uint32_t address, uint8_t state
-* 返回值 Returned value: none
-****************************************************************************/
-void Flash_SectorErase (uint32_t address, uint8_t state)
-{
-    Flash_WriteEnable();
-    /* Select the FLASH: Chip Select low */
-    W25QXX_CS_LOW();
-    /* Send Sector Erase instruction */
-    Flash_SendByte ( JEDEC_SECTOR_ERASE );
-    /* Send SectorAddr high nibble address byte */
-    Flash_SendByte ( ( address & 0xFF0000 ) >> 16 );
-    /* Send SectorAddr medium nibble address byte */
-    Flash_SendByte ( ( address & 0xFF00 ) >> 8 );
-    /* Send SectorAddr low nibble address byte */
-    Flash_SendByte ( address & 0xFF );
-    /* Deselect the FLASH: Chip Select high */
-    W25QXX_CS_HIGH();
-
-    /* Wait the end of Flash writing */
-    if ( state )
-    {
-        Flash_WaitForEnd();
-    }
-}
-
+/**
+  * @brief 等待 WIP(BUSY) 标志位被置 0, 即等到 FLASH 内部数据写入完毕
+  * @param none
+  * @retval none
+  */
 static void Flash_WaitForEnd (void)
 {
-    u8 FLASH_Status = 0;
+    u8 FLASH_Status = 0;	
 
     /* Loop as long as the memory is busy with a write cycle */
     do
@@ -266,14 +243,14 @@ static void Flash_WaitForEnd (void)
         /* Select the FLASH: Chip Select low */
         W25QXX_CS_LOW();
         /* Send "Read Status Register" instruction */
-        Flash_SendByte ( JEDEC_READ_STATUS );
+        Flash_SendByte ( JEDEC_READ_STATUS );			// 发送读取 状态寄存器 指令
         /* Send a dummy byte to generate the clock needed by the FLASH
         and put the value of the status register in FLASH_Status variable */
-        FLASH_Status = Flash_SendByte ( DUMMY_BYTE );
+        FLASH_Status = Flash_SendByte ( DUMMY_BYTE );	// 读取 FLASH 芯片的状态寄存器
         /* Deselect the FLASH: Chip Select high */
         W25QXX_CS_HIGH();
     }
-    while ( FLASH_Status & JEDEC_STATUS_BUSY );
+    while ( FLASH_Status & JEDEC_STATUS_BUSY );			// 等待 FLASH  写入完成
 }
 
 // Flash Sectors Read
@@ -287,6 +264,76 @@ void Flash_SectorsRead (uint32_t address, uint8_t *buffer, uint16_t count)
 		buffer += flash_info.sector_size;
 		address += flash_info.sector_size;
 	}
+}
+
+/***************************************************************************
+* 原型 Prototype: void Flash_SectorErase (uint32_t address, uint8_t state)
+* 功能 Function : Erases the specified FLASH sector. 擦除指定的扇区.
+* 参数 Parameter: uint32_t address, uint8_t state
+* 返回值 Returned value: none
+****************************************************************************/
+void Flash_SectorErase (uint32_t address, uint8_t state)
+{
+    Flash_WriteEnable();		// 写使能, 在擦除之前
+    /* Select the FLASH: Chip Select low */
+    W25QXX_CS_LOW();			// CS_LOW
+    /* Send Sector Erase instruction */
+    Flash_SendByte (JEDEC_SECTOR_ERASE);		// 发送扇区擦除指令 0x20
+    /* Send SectorAddr high nibble address byte */
+    Flash_SendByte ((address & 0xFF0000) >> 16);		// 发送擦除扇区地址的高位
+    /* Send SectorAddr medium nibble address byte */
+    Flash_SendByte ((address & 0xFF00) >> 8);			// 发送擦除扇区地址的中位
+    /* Send SectorAddr low nibble address byte */
+    Flash_SendByte (address & 0xFF);					// 发送擦除扇区地址的低位
+    /* Deselect the FLASH: Chip Select high */
+    W25QXX_CS_HIGH();			// CS_HIGH
+
+    /* Wait the end of Flash writing */
+    if (state)				// 等待擦除完毕
+    {
+        Flash_WaitForEnd();
+    }
+}
+
+/**
+  * @brief  Writes more than one byte to the FLASH with a single WRITE
+  *         cycle(Page WRITE sequence). The number of byte can't exceed
+  *         the FLASH page size.
+  * @param pBuffer : pointer to the buffer  containing the data to be
+  *                  written to the FLASH.
+  * @param WriteAddr : FLASH's internal address to write to.
+  * @param NumByteToWrite : number of bytes to write to the FLASH,
+  *                       must be equal or less than "SPI_FLASH_PageSize" value.
+  * @retval : None
+  */
+void Flash_PageWrite (uint32_t address, uint8_t* buffer,  uint32_t lenght)
+{
+    Flash_WriteEnable();			// 写使能  
+    /* Select the FLASH: Chip Select low */
+    W25QXX_CS_LOW();				// CS_LOW
+    /* Send "Write to Memory " instruction */
+    Flash_SendByte (JEDEC_PAGE_WRITE);				// 发送擦除指令 0x02
+    /* Send WriteAddr high nibble address byte to write to */
+    Flash_SendByte ((address & 0xFF0000) >> 16);	// 发送写地址高位
+    /* Send WriteAddr medium nibble address byte to write to */
+    Flash_SendByte ((address & 0xFF00) >> 8);		// 发送写地址中位
+    /* Send WriteAddr low nibble address byte to write to */
+    Flash_SendByte (address & 0xFF);				// 发送写地址低位
+
+    /* while there is data to be written on the FLASH */
+    while (lenght--)				// 写入数据
+    {
+        /* Send the current byte */
+        Flash_SendByte (*buffer);	// 发送前要写入的数据
+        /* Point on the next byte to be written */
+        buffer++;					// 指向下一个数据
+    }
+
+    /* Deselect the FLASH: Chip Select high */
+    W25QXX_CS_HIGH();				// CS_HIGH
+
+    /* Wait the end of Flash writing */
+    Flash_WaitForEnd();				// 查询 FLASH 状态, 等待 FLASH 写完成.
 }
 
 /**
@@ -303,7 +350,7 @@ void Flash_PageRead (uint32_t address, uint8_t* buffer,  uint32_t lenght)
     W25QXX_CS_LOW();
 	
 	/* Send "Read from Memory " instruction */
-	Flash_SendByte ( JEDEC_READ_DATA );
+	Flash_SendByte ( JEDEC_READ_DATA );		// 发送读数据指令  0x03
 	
 	/* Send ReadAddr high nibble address byte to read from */
     Flash_SendByte ( ( address & 0xFF0000 ) >> 16 );
@@ -315,7 +362,7 @@ void Flash_PageRead (uint32_t address, uint8_t* buffer,  uint32_t lenght)
 	while ( lenght-- ) /* while there is data to be read */
     {
         /* Read a byte from the FLASH */
-        *buffer = Flash_SendByte ( DUMMY_BYTE );
+        *buffer = Flash_SendByte ( DUMMY_BYTE );		// 将这个 buffer 读取回来的值保存到 结构体中
         /* Point to the next location where the byte read will be saved */
         buffer++;
     }

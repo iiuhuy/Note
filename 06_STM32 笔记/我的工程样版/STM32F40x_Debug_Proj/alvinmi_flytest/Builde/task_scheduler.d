@@ -2,7 +2,7 @@
 .\builde\task_scheduler.o: User\Applications\Task_scheduler.h
 .\builde\task_scheduler.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\task_scheduler.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\task_scheduler.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\task_scheduler.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\task_scheduler.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\task_scheduler.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\task_scheduler.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

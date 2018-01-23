@@ -31,7 +31,7 @@ typedef struct
 {
     uint8_t initialized;	// 初始化标志位
     uint16_t sector_size;	// 扇区的大小
-    uint16_t sector_count;	// 
+    uint16_t sector_count;	// 数量
     uint32_t capacity;		// 容量
 } flash_info_t;
 

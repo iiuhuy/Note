@@ -5,6 +5,13 @@
 /* Exported types ------------------------------------------------------------*/
 #define TRUE 1
 #define FALSE 0 
+enum pwminmode_e
+{
+	PWM = 0,
+	PPM ,
+	SBUS,
+};
+
 
 enum
 {
@@ -12,6 +19,22 @@ enum
 	Y = 1,
 	Z = 2,
 	VEC_XYZ,
+};
+
+enum
+{
+	ROL = 0,	// roll  ºá¹ö½Ç
+	PIT = 1,	// pitch ¸©Ñö½Ç
+	YAW = 2,	// yaw 	 Æ«º½½Ç
+	VEC_RPY,
+};
+
+enum
+{
+	KP = 0,
+	KI = 1,
+	KD = 2,
+	PID,
 };
 
 typedef struct
@@ -26,6 +49,7 @@ typedef struct
 	float mag_gain[VEC_XYZ];
 
 } _save_st ;
+extern _save_st save;
 
 
 

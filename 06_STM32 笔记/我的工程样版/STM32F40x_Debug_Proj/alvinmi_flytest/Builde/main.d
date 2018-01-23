@@ -2,7 +2,7 @@
 .\builde\main.o: User\Applications\BSP_Init.h
 .\builde\main.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\builde\main.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\builde\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\builde\main.o: C:\Keil_v5.23\ARM\ARMCC\Bin\..\include\stdint.h
 .\builde\main.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\builde\main.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\builde\main.o: .\Libraries\CMSIS\Include\core_cm4_simd.h
