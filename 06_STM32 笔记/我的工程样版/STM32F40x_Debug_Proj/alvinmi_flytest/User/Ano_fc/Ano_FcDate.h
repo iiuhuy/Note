@@ -26,7 +26,10 @@ enum
 	ROL = 0,	// roll  横滚角
 	PIT = 1,	// pitch 俯仰角
 	YAW = 2,	// yaw 	 偏航角
-	VEC_RPY,
+	VEC_RPY,	// 向量化 ? 
+				// RPY -> roll、pitch、yaw		// rpy 角也叫 X-Y-Z fixed angles.
+				// 另一种姿态描述方式, 绕自身坐标轴旋转。 称为 Z-Y-X 欧拉角. 
+				// 两种描述方式不同, 但是最终结果都是一样的。四元数转欧拉角有 12 种旋转次序.
 };
 
 enum

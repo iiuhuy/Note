@@ -22,25 +22,27 @@ Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
 E:\1_alvinmi\Note\06_STM32 笔记\我的工程样版\STM32F40x_Debug_Proj\alvinmi_flytest\alvinmi_v1.0.uvprojx
-Project File Date:  01/16/2018
+Project File Date:  01/24/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5.23\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling Flight_Ctrl.c...
-compiling Ano_FcDate.c...
-compiling Ano_Parameter.c...
+User\Contral\Flight_Ctrl.c(11): warning:  #223-D: function "Att_2level_PID_Init" declared implicitly
+  	Att_2level_PID_Init();
+User\Contral\Flight_Ctrl.c: 1 warning, 0 errors
+compiling Attitude_Contrl.c...
 linking...
-Program Size: Code=6716 RO-data=424 RW-data=160 ZI-data=7376  
+Program Size: Code=6896 RO-data=424 RW-data=160 ZI-data=7520  
 FromELF: creating hex file...
-".\Builde\alvinmi_v1.0" - 0 Error(s), 0 Warning(s).
+".\Builde\alvinmi_v1.0" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
   C:\Keil_v5.23\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS\Include;.\Libraries\CMSIS\ST\STM32F4xx\Include;.\User\Applications;.\User\Contral;.\User\Date;.\User\Drivers;.\User\Ano_fc</IncludePath>
+              <IncludePath>.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS\Include;.\Libraries\CMSIS\ST\STM32F4xx\Include;.\User\Applications;.\User\Contral;.\User\Date;.\User\Drivers;.\User\Ano_fc;.\User\fc_General</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -422,12 +422,32 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Contral</GroupName>
+          <GroupName>fc_General</GroupName>
           <Files>
+            <File>
+              <FileName>Ano_Pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\fc_General\Ano_Pid.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fc_Contral</GroupName>
+          <Files>
+            <File>
+              <FileName>config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Contral\config.h</FilePath>
+            </File>
             <File>
               <FileName>Flight_Ctrl.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\Contral\Flight_Ctrl.c</FilePath>
+            </File>
+            <File>
+              <FileName>Attitude_Contrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Contral\Attitude_Contrl.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -62,7 +62,12 @@ void PID_Rest(void)
 static void Ano_Parame_Write(void)
 {
 	All_PID_Init();			// 储存 PID 参数后, 重新初始化 PID
+//	Ano_Parame.set.frist_init = SOFT_VER;
+
+//	Parame_Copy_Fc2para();
 	
+//	Flash_SectorErase ( 0x000000, 1 );							//擦除第一扇区
+//	Flash_SectorsWrite ( 0x000000, &Ano_Parame.byte[0], 1 );	//将参数写入第一扇区
 	
 }
 
