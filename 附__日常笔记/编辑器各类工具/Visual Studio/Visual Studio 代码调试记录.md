@@ -1,10 +1,7 @@
-
 # 最后再总结一下 Visual Studio 一些好用的插件
 先看看知乎各位的回答 [Visual Studio 有哪些好用的插件？](https://www.zhihu.com/question/20617534) 。
 
-
-
-# 插件
+# 0x01 插件
 在官网能找到很多插件, 根据自己的需求和爱好来适配。
 ## 0x01 Image Watch
 上面 链接回来里面就有人提到了这个插件。
@@ -37,4 +34,14 @@
 [Visual Studio 2012 Color Theme Editor](https://marketplace.visualstudio.com/items?itemName=MatthewJohnsonMSFT.VisualStudio2012ColorThemeEditor)
 
 ## ClaudiaIDE
-这是一个换背景的插件, 
+这是一个换背景的插件,
+
+# 0x02 快捷键
+
+## 注释快捷键
+Visual Studio 2012 的注释快捷键为 : 先按 `Ctrl + k`, 再接着按 `Ctrl + C`。
+恢复注释快捷键为 : `Ctrl + K`, 再接着按 `Ctrl + U` 。
+
+这样按觉得很别扭, 所以打算修改一下快捷键方式。
+
+TOOLS -> Options -> Environment -> Keyboard -> 搜 `Comments`。 接着更改就好了。
