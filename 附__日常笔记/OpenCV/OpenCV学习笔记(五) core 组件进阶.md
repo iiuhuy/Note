@@ -8,7 +8,7 @@
 * 如何对图像进行傅里叶变换
 * 如何输入输出 XML 和 YAML 文件
 
-# 访问图像中的元素
+# 0x01 访问图像中的元素
 ## LUT 函数(Look up table) 操作
 用于批量进行图像元素查找、扫描与操作图像。如下 :
 
@@ -42,7 +42,7 @@ for(int i = 0; i<times; ++i)
 
 遍历图像的像素的 14 种方法, 浅墨大神书中提到, 这 14 中方法, 来自国外一本 OpenCV2 书籍的配套例程, 比较经典。
 
-# 感兴趣区域 ROI(region of interest)
+# 0x02 感兴趣区域 ROI(region of interest)
 定义 ROI 区域有两种方法 :
 
 * 第一种, 使用表示矩形区域的 Rect。指定矩形的左上角坐标(构造函数的前两个参数) 和矩形的长宽(构造函数的后两个参数)。
@@ -82,3 +82,25 @@ dst = src1[i] * alpha + src2[i] * beta + gamma;
 ```
 
 即用 addWeighted 函数计算两个数组(src1 和 src2)的加权和, 得到结果输出给第四个参数。
+
+练习 `初级图像混合`。对指定的区域进行图像混合操作。
+
+# 0x03 分离颜色通道, 多通道图像混合
+为了观察一些图像材料的特征, 有时候需要对 RGB 三个颜色通道的分量进行分别显示和调整。 通过 OpenCV 的 split 和 merge 方法可以很方便的达到目的。
+
+## 通道分离 split 函数
+split 函数用于将一个多通道数组分离成几个单通道数组。 看看原型 :
+
+```cpp
+void split(const Mat& src, Mat* mvbegin);
+void split(InputArray m, OutputArrayOfArrays mv);
+```
+
+* 第一个参数, InputArray 类型的 m 或者 const Mat& 类型的 src, 填写需要进行分离的多通道数组。
+* 第二个参数, OutputArray 类型的 mv, 填写函数的输出数组或者输出的 Vector 容器。
+@TUDO split 函数分隔多通道数组转换成独立的单通道数组, 公式
+## 通道合并 merge 函数
+
+# 0x04 图像对比度、亮度值调整
+# 0x05 离散傅里叶变换
+# 0x06 XML 和 YAML 文件读写
